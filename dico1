@@ -1,0 +1,34 @@
+/* Jalankan kode di sini! */
+function makeIce(isCold){
+  let ice;
+  if(isCold){
+    ice = "buatlah ice satu"
+  } else {
+    ice ="ra sida"
+  }
+  return ice;
+}
+console.log(makeIce(true));
+
+function getlonte(){
+  let lonte;
+  lonte = "lonte usia 15 tahun";
+  console.log(lonte)
+}
+
+getlonte();
+
+let begenggek = "linda";
+begenggek = "salma";
+console.log(begenggek)
+
+const cewek = ["Syahiba Saufa","Suliana","Anisa Rahma","Alvi Ananta"]
+cewek.push("Lonte");
+console.log(cewek)
+
+const nama = {
+  awal  : "lonte",
+  akhir : "permatasari",
+  usia  : "15" ,
+}
+console.log("Nama : "+nama.awal+" "+nama.akhir+" Usia : "+nama.usia);
