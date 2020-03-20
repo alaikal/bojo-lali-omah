@@ -1,0 +1,110 @@
+const foods = ['Pie', 'Cake', 'Honey']
+ 
+const myFood = foods[0]
+const yourFood = foods[1]
+const ourFood = foods[2]
+ 
+console.log(myFood, yourFood, ourFood)
+
+const user = {
+    firstName: "Dimas",
+    lastName: "Saputra",
+    age: 18
+}
+ 
+const admin = {
+    name: "Jane",
+    position: "Marketing"
+}
+ 
+const message = `Dear, ${user.firstName} ${user.lastName}
+ 
+Selamat ulang tahun yang ke-${user.age} semoga selalu diberikan kesehatan.
+ 
+Best Regards,
+${admin.name}
+${admin.position}`;
+ 
+console.log(message);
+
+[
+    {
+        "hangar": 1,
+        "bus": "patas",
+        "tujuan": "surabaya / malang"
+    },
+    {
+        "hangar": 2,
+        "bus": "patas",
+        "tujuan": "yogya / banyuwangi"
+    },
+    {
+         "hangar": 3,
+         "bus": "ekonomi",
+         "tujuan": "surabaya"
+    },
+    {
+         "hangar": 4,
+         "bus": "ekonomi",
+         "tujuan": "malang"
+    }
+]
+
+const profile = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 18
+}
+ 
+const {firstName, lastName, age} = profile;
+ 
+console.log(firstName, lastName, age);
+
+const profile2 = {
+    firstName2: "John",
+    lastName2: "Doe",
+    age2: 18
+}
+ 
+let firstName2 = "Dimas";
+let age2 = 20;
+ 
+// menginisialisasi nilai baru melalui object destruction
+({firstName2, age2} = profile2);
+ 
+console.log(firstName2);
+console.log(age2);
+
+const profile3 = {
+    firstName3: "John",
+    lastName3: "Doe",
+    age3: 18
+}
+ 
+ 
+const {firstName3, age3, isMale = false} = profile3;
+ 
+console.log(firstName3)
+console.log(age3)
+console.log(isMale)
+
+const profile4 = {
+    firstName4: "John",
+    lastName4: "Doe",
+    age4: 18
+}
+ 
+const {firstName4: localFirstName4, lastName4: localLastName4, age4: localAge4} = profile4;
+ 
+console.log(localFirstName4);
+console.log(localLastName4);
+console.log(localAge4);
+
+const favorites = ["Seafood", "Salad", "Nugget", "Soup"];
+ 
+const [firstFood, secondFood, thirdFood, fourthFood] = favorites;
+ 
+console.log(firstFood);
+console.log(secondFood);
+console.log(thirdFood);
+console.log(fourthFood);
