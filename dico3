@@ -1,0 +1,142 @@
+const makan = ["satu", "dua", "tuga", "empat"];
+ 
+const [, , dua ] = makan;
+ 
+console.log(dua);
+
+const singer = ["syahibasaufa", "jamesap", "alviananta", "wandrarestusiyan"];
+ 
+let mysinger = "welas hang reng kene";
+let hersinger = "bojo lali omah";
+ 
+[mysinger, hersinger] = singer;
+ 
+console.log(mysinger);
+console.log(hersinger);
+
+var a = 1;
+var b = 2;
+var temp;
+ 
+console.log("Sebelum swap");
+console.log("Nilai a: " + a);
+console.log("Nilai b: " + b);
+ 
+temp = a;
+a = b;
+b = temp;
+ 
+console.log("Setelah swap");
+console.log("Nilai a: " + a);
+console.log("Nilai b: " + b);
+
+let isun = 20;
+let riko = 10;
+console.log("Sebelum diacak isun = "+isun);
+console.log("sebelum diacak riko = "+riko);
+[isun,riko]=[riko,isun]
+console.log("setelah diacak isun = "+isun)
+console.log("setelah diacak riko = "+riko)
+
+const favorites = ["Seafood"];
+ 
+const [myFood, herFood = "tempe"] = favorites
+ 
+console.log(myFood);
+console.log(herFood);
+
+
+
+const satuan = ["1","2","3","4"]
+const belasan = ["11","12","13","14"]
+const angka = [...satuan,...belasan]
+console.log(Math.max(...angka));
+console.log(angka);
+
+
+function sum(...numbers) {
+    var result = 0;
+    for(let number of numbers) {
+        result += number
+    }
+    return result;
+}
+console.log(sum(1,2,3,4,5,6));
+
+const refrigerator = ["Samsung", 10, 3, "milk", "cheese", "egg", "butter"];
+ 
+const [manufacture, weight, door, ...items] = refrigerator;
+ 
+console.log(manufacture);
+console.log(weight);
+console.log(door);
+console.log(items);
+ 
+
+
+const besar = ["ALEX","ALAIKAL"]
+.map(name => name.toUpperCase());
+console.log(...besar)
+
+// function declaration
+function sayHello(greet) {
+    console.log(`${greet}!`);
+}
+ 
+ 
+// function expression
+const sayName = function (name) {
+    console.log(`Nama saya ${name}`)
+}
+
+
+
+const sayHello2 = (name, greet) => console.log(`${greet}, ${name}!`);
+ 
+sayHello2("Dimas", "Selamat Pagi")
+const sayHello3 = () => console.log("Selamat pagi semuanya!");
+ 
+sayHello3()
+
+const sayHello5 = language => {
+    if(language.toUpperCase() === "INDONESIA") {
+        return "Selamat Pagi!";
+    } else {
+        return "Good Morning!";
+    }
+}
+ 
+console.log(sayHello5("english"));
+
+function People(name, age, hobby) {
+    this.name = name;
+    this.age = age;
+    this.hobby = hobby;
+}
+ 
+const programmer = new People("John", 18, ["Coding", "Read book", "Ping-pong"]);
+ 
+console.log(programmer.name);
+console.log(programmer.age);
+console.log(programmer.hobby);
+
+function People2(nama, usia, hobi) {
+    this.nama = nama;
+    this.usia = usia;
+    this.hobi = hobi;
+}
+ 
+ 
+// menambahkan introMyself ke People
+People2.prototype.introMyself = function () {
+    // this -> People
+    setTimeout(() => {
+        // this -> People
+        console.log(`Hello! Nama saya ${this.nama}, umur saya ${this.usia}.`)
+        console.log(`Hobby saya adalah ${this.hobi}`)
+    }, 300)
+}
+ 
+ 
+const programmer2 = new People2("John", 18, ["Coding", "Read book", "Ping-pong"]);
+programmer2.introMyself();
