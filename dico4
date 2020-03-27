@@ -1,0 +1,35 @@
+class Car {
+    constructor(manufacture, color) {
+        this.manufacture = manufacture;
+        this.color = color;
+        this.enginesActive = false;
+    }
+}
+ 
+const johnCar = new Car("Honda", "Red");
+const adamCar = new Car("Tesla", "Black");
+ 
+console.log(johnCar.manufacture);
+console.log(adamCar.manufacture);
+
+class Car2 {
+    constructor(manufacture2, color2) {
+        this.manufacture2 = manufacture2;
+        this._color2 = color;2
+        this.enginesActive = false;
+    }
+    
+    get color2() {
+        return `Warna mobile ${this._color2}`;
+    }
+    
+    set color2(value) {
+        console.log(`Warna mobil diubah dari ${this._color2} menjadi ${value}`);
+        this._color2 = value;
+    }
+}
+ 
+const johnCar2 = new Car2("Honda", "Red");
+console.log(johnCar2.color2); // output -> Warna Mobil: Red
+johnCar2.color2 = "White"; // Mengubah nilai properti color menjadi white
+console.log(johnCar2.color2); // output -> Warna Mobil: White
