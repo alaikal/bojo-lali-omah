@@ -1,0 +1,136 @@
+
+class Vehicle {
+   constructor(licensePlate, manufacture) {
+       this.licensePlate = licensePlate;
+       this.manufacture = manufacture;
+       this.engineActive = false;
+   }
+  
+   startEngines() {
+       console.log(`Mesin kendaraan ${this.licensePlate} dinyalakan!`);
+   }
+  
+   info() {
+       console.log(`Nomor Kendaraan: ${this.licensePlate}`);
+       console.log(`Manufacture: ${this.manufacture}`);
+       console.log(`Mesin: ${this.engineActive ? "Active": "Inactive"}`);
+   }
+  
+   parking() {
+       console.log(`Kendaraan ${this.licensePlate} parkir!`);
+   }
+}
+
+class Car extends Vehicle {
+   constructor(licensePlate, manufacture, wheels) {
+       super(licensePlate, manufacture);
+       this.wheels = wheels;
+   }
+ 
+   droveOff() {
+     console.log(`Kendaraan ${this.licensePlate} melaju!`);
+   }
+ 
+   openDoor() {
+     console.log(`Membuka pintu!`);
+   }
+ 
+   /* overriding method info dari parent class */
+   info() {
+     super.info();
+     console.log(`Jumlah roda: ${this.wheels}`);
+   }
+}
+ 
+const johnCar = new Car("H121S", "Honda", 4);
+johnCar.info();
+
+console.log("Selamat datang!");
+setTimeout(() => {
+ console.log("Terimakasih sudah mampir, silakan datang kembali!")
+}, 3000)
+console.log("Ada yang bisa dibantu?")
+
+const getCake = callback => {
+ let cake = null;
+ console.log("Sedang membuat kue, silakan tunggu ....")
+ setTimeout(() => {
+   cake = "Kue Selesai!";
+   callback(cake);
+ }, 3000)
+}
+ 
+getCake(cake => {
+ console.log(cake);
+})
+
+const executorFunction = (resolve, reject) => {
+ const isCoffeeMakerReady = true;
+ if(isCoffeeMakerReady) {
+   resolve("Kopi berhasil dibuat");
+ } else {
+   reject("Mesin Kopi tidak bisa digunakan!")
+ }
+}
+
+const handlerSuccess = coffee => {
+ console.log(coffee);
+}
+ 
+const handlerRejected = rejectionReason => {
+ console.log(rejectionReason)
+}
+
+const makeCoffee = new Promise(executorFunction);
+makeCoffee.then(handlerSuccess, handlerRejected);
+
+const state = {
+ isLonteMakerReady: true,
+ seedStocks: {
+   abg: 250,
+   remaja: 60,
+   rondoteles: 80
+ }
+}
+ 
+const getSeeds = (type, miligrams) => {
+ return new Promise((resolve, reject) => {
+   if(state.seedStocks[type] >= miligrams) {
+     state.seedStocks[type] -= miligrams;
+     resolve("Biji lonte didapatkan!")
+   } else {
+     reject("maaf lonte is habis!")
+   }
+ });
+}
+ 
+const makelonte = seeds => {
+ return new Promise((resolve, reject) => {
+   if(state.isCoffeeMakerReady) {
+     resolve("lonte berhasil dibuat!")
+   } else {
+     reject("Maaf mesin tidak dapat digunakan!");
+   }
+ })
+}
+ 
+const servingToTable = coffee => {
+ return new Promise(resolve => {
+   resolve("Pesanan kopi sudah selesai!")
+ })
+}
+ 
+function reserveACoffee(type, miligrams) {
+ getSeeds(type, miligrams)
+ .then(makeCoffee)
+ .then(servingToTable)
+ .then(resolvedValue => {
+   console.log(resolvedValue);
+ })
+ .catch(rejectedReason => {
+   console.log(rejectedReason);
+ })
+}
+ 
+/* Silakan ubah tipe kopi dan kuantitasnya, untuk mendapatkan promise rejection*/
+reserveACoffee("liberica", 80);
